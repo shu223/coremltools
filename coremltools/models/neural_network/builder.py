@@ -1451,8 +1451,8 @@ class NeuralNetworkBuilder(object):
         """
         spec_layer = self._add_generic_layer(name, [input_name], [output_name])
         spec_layer_params = spec_layer.upsample
-        spec_layer_params.scalingFactor.append(scaling_factor_h)
-        spec_layer_params.scalingFactor.append(scaling_factor_w)
+        spec_layer_params.scalingFactor.append(int(scaling_factor_h))
+        spec_layer_params.scalingFactor.append(int(scaling_factor_w))
         mode = mode.upper() if isinstance(mode, str) else mode
         if mode == 'NN':
             spec_layer_params.mode = _NeuralNetwork_pb2.UpsampleLayerParams.InterpolationMode.Value('NN')
